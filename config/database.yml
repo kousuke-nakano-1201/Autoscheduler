@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: autoscheduler_production
   username: autoscheduler
   password: <%= ENV['AUTOSCHEDULER_DATABASE_PASSWORD'] %>
