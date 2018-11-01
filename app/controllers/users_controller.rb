@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+#  before_action :require_user_logged_in, only: [:index, :show]
   
-  def index
-  end
+#  def index
+#  end
 
-  def show
-  end
+#  def show
+#  end
 
   def new
     @user = User.new
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
     if @user.save
       flash[:success] = 'ユーザを登録しました。'
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to schedules_path
     else
       flash.now[:danger] = 'ユーザの登録に失敗しました。'
       render :new

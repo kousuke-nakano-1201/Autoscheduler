@@ -1,6 +1,11 @@
 <div class="center jumbotron">
   <div class="text-center">
     <h1>Auto scheduler</h1>
-    <%= link_to '新規アカウント作成', signup_path, class: 'btn btn-lg btn-primary' %>
+    <% if logged_in? %>
+      <%= link_to 'スケジュール一覧', schedules_path, class: 'btn btn-lg btn-success' %>
+    <% else %>
+      <%= link_to '新規アカウント作成', signup_path, class: 'btn btn-lg btn-primary' %>
+      <%= link_to 'ログイン', login_path, class: 'btn btn-lg btn-success' %>
+    <% end %>
   </div>
 </div>

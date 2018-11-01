@@ -1,0 +1,36 @@
+<h1><%= @schedule.schedule_title %> のスケジュール詳細ページ</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th rowspan="2">開始日</th>
+      <th rowspan="2">終了日</th>
+      <th colspan="7">勉強時間（時間）</th>
+    </tr>
+    <tr>
+      <th>月曜日</th>
+      <th>火曜日</th>
+      <th>水曜日</th>
+      <th>木曜日</th>
+      <th>金曜日</th>
+      <th>土曜日</th>
+      <th>日曜日</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th><%= @schedule.day_start %></th>
+      <th><%= @schedule.day_end %></th>
+      <th><%= @schedule.week.time_Mon %></th>
+      <th><%= @schedule.week.time_Tue %></th>
+      <th><%= @schedule.week.time_Wed %></th>
+      <th><%= @schedule.week.time_Thu %></th>
+      <th><%= @schedule.week.time_Fri %></th>
+      <th><%= @schedule.week.time_Sat %></th>
+      <th><%= @schedule.week.time_Sun %></th>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'スケジュールタイトル/日程の編集', edit_schedule_path(@schedule) , class: 'btn btn-default' %>
+
+<%= link_to 'このスケジュールを削除する', @schedule, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

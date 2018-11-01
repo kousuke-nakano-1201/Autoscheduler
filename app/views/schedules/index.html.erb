@@ -1,0 +1,28 @@
+<h1><%= current_user.name %>のスケジュール一覧</h1>
+
+<% if @schedules.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>開始日</th>
+        <th>終了日</th>
+        <th>スケジュール表の表示・編集</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @schedules.each do |schedule| %>
+        <tr>
+          <td><%= link_to schedule.schedule_title, schedule %></td>
+          <td><%= schedule.day_start%></td>
+          <td><%= schedule.day_end %></td>
+          <td>表示・編集</td>
+        </tr>
+      <% end %>
+    </tbody> 
+  </table>
+  <div>
+    <%= paginate @schedules %>
+  </div>
+<% end %>
+<%= link_to '新規スケジュール作成', new_schedule_path, class: "btn btn-primary"  %>

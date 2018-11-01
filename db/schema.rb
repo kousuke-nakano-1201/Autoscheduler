@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181101034617) do
+ActiveRecord::Schema.define(version: 20181101054415) do
+
+  create_table "schedules", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.string   "schedule_title"
+    t.date     "day_start"
+    t.date     "day_end"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id", using: :btree
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
@@ -20,4 +30,20 @@ ActiveRecord::Schema.define(version: 20181101034617) do
     t.datetime "updated_at",      null: false
   end
 
+  create_table "weeks", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "schedule_id"
+    t.integer  "time_Mon"
+    t.integer  "time_Tue"
+    t.integer  "time_Wed"
+    t.integer  "time_Thu"
+    t.integer  "time_Fri"
+    t.integer  "time_Sat"
+    t.integer  "time_Sun"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["schedule_id"], name: "index_weeks_on_schedule_id", using: :btree
+  end
+
+  add_foreign_key "schedules", "users"
+  add_foreign_key "weeks", "schedules"
 end
