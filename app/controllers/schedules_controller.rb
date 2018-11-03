@@ -1,5 +1,5 @@
 class SchedulesController < ApplicationController
-  before_action :require_user_logged_in, only:[:index, :show, :new, :create, :edit, :update, :destroy]
+  before_action :require_user_logged_in
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
   
   def index
@@ -8,6 +8,8 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
+#    binding.pry
+    @tasks = @schedule.tasks.order('created_at DESC').page(params[:page])
   end
 
   def new
@@ -17,8 +19,7 @@ class SchedulesController < ApplicationController
 
   def create
     @schedule = current_user.schedules.build(schedule_params)
-#    binding.pry
-    if @schedule.save!
+    if @schedule.save
       flash[:success] = 'スケジュールが正常に作成されました'
       redirect_to @schedule
     else

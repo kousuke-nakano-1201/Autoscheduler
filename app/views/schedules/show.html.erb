@@ -32,5 +32,34 @@
   </tbody>
 </table>
 <%= link_to 'スケジュールタイトル/日程の編集', edit_schedule_path(@schedule) , class: 'btn btn-default' %>
-
 <%= link_to 'このスケジュールを削除する', @schedule, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+
+<h1><%= @schedule.schedule_title %>のタスク一覧</h1>
+
+<% if @tasks.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>タイトル</th>
+        <th>開始ページ</th>
+        <th>終了ページ</th>
+        <th>1ページあたりの目安時間(分)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td><%= link_to task.task_title, schedule_task_path(@schedule) %></td>
+          <td><%= task.page_start%></td>
+          <td><%= task.page_end %></td>
+          <td><%= task.time_par_page %></td>
+        </tr>
+      <% end %>
+    </tbody> 
+  </table>
+  <div>
+    <%= paginate @tasks %>
+  </div>
+<% end %>
+<%= link_to '新規タスク作成', new_schedule_task_path(@schedule), class: "btn btn-primary"  %>
+
