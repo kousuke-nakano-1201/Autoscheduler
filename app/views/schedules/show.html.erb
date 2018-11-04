@@ -45,15 +45,18 @@
         <th>開始ページ</th>
         <th>終了ページ</th>
         <th>1ページあたりの目安時間(分)</th>
+        <th>タスクの編集/削除</th>
       </tr>
     </thead>
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td><%= link_to task.task_title, schedule_task_path(schedule_id:@schedule,id:task) %></td>
+          <td><%= link_to task.task_title, edit_schedule_task_path(schedule_id:@schedule,id:task) %></td>
           <td><%= task.page_start%></td>
           <td><%= task.page_end %></td>
           <td><%= task.time_par_page %></td>
+          <td><%= link_to '編集', edit_schedule_task_path(schedule_id:@schedule,id:task) , class: 'btn btn-default' %>
+          <%= link_to '削除', schedule_task_path(schedule_id:@schedule,id:task), method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %></td>
         </tr>
       <% end %>
     </tbody> 

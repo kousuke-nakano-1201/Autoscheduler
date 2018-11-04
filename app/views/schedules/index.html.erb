@@ -7,7 +7,7 @@
         <th>タイトル</th>
         <th>開始日</th>
         <th>終了日</th>
-        <th>スケジュール表の表示</th>
+        <th>スケジュール表の表示/スケジュールの詳細</th>
       </tr>
     </thead>
     <tbody>
@@ -16,7 +16,8 @@
           <td><%= link_to schedule.schedule_title, schedule %></td>
           <td><%= schedule.day_start%></td>
           <td><%= schedule.day_end %></td>
-          <td><%= link_to '表示',schedule_tables_path(schedule_id:(schedule.id)), class: 'btn btn-success' %></td>
+          <td><%= link_to '表示',schedule_tables_path(schedule_id:(schedule.id)), class: 'btn btn-success' %>
+          <%= link_to '詳細',schedule_path(id:(schedule.id)), class: 'btn btn-default' %></td>
         </tr>
       <% end %>
     </tbody> 
