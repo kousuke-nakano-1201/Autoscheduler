@@ -1,3 +1,41 @@
 <h1>タスク新規作成ページ</h1>
 
-<%= render 'form', task: @task %>
+<%= form_for(@task,url: schedule_tasks_path(schedule_id:@schedule))  do |f| %>
+  <div class="row">
+    <% if @task.errors.any? %>
+      <div id="error_explanation">
+        <ul>
+          <% @task.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="clearfix">
+    <div class="col-xs-6">
+    <div class="form-group">
+      <%= f.label :task_title, 'タイトル' %>
+      <%= f.text_field :task_title , class: 'form-control'%>
+    </div> 
+    </div> 
+    </div> 
+    <div class="clearfix">
+    <div class="form-inline">
+    <div class="form-group">
+      <%= f.label :page_start, '開始ページ' %>
+      <%= f.number_field :page_start , use_month_numbers: true, class: 'form-control'%>
+      <%= f.label :page_end, '～終了ページ' %>
+      <%= f.number_field :page_end , use_month_numbers: true, class: 'form-control'%>
+    </div> 
+    <div class="form-group">
+      <%= f.label :time_par_page, '　1ページあたりの目安時間' %>
+      <%= f.number_field :time_par_page , class: 'form-control'%><strong>分　</strong>
+    </div>
+    </div> 
+    </div>
+    
+    <%= f.submit 'タスクを作成', class: 'btn btn-primary'%>
+  </div> 
+<% end %>
+
+<%#= render 'form', task: @task %>

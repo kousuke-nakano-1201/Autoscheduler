@@ -32,7 +32,8 @@
   </tbody>
 </table>
 <%= link_to 'スケジュールタイトル/日程の編集', edit_schedule_path(@schedule) , class: 'btn btn-default' %>
-<%= link_to 'このスケジュールを削除する', @schedule, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+<%= link_to 'スケジュールを削除する', @schedule, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+<%= link_to 'スケジュール表の表示',schedule_tables_path(@schedule), class: 'btn btn-success' %>
 
 <h1><%= @schedule.schedule_title %>のタスク一覧</h1>
 
@@ -49,7 +50,7 @@
     <tbody>
       <% @tasks.each do |task| %>
         <tr>
-          <td><%= link_to task.task_title, schedule_task_path(@schedule) %></td>
+          <td><%= link_to task.task_title, schedule_task_path(schedule_id:@schedule,id:task) %></td>
           <td><%= task.page_start%></td>
           <td><%= task.page_end %></td>
           <td><%= task.time_par_page %></td>

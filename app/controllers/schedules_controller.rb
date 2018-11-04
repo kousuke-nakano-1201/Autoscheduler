@@ -35,7 +35,7 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(schedule_params)
-      flash[:success] = 'スケジュールが正常に更新されました'
+      flash[:success] = 'スケジュールが更新されました'
       redirect_to @schedule
     else
       flash.now[:danger] = 'スケジュールが更新されませんでした'
@@ -47,7 +47,7 @@ class SchedulesController < ApplicationController
   def destroy
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
-    flash[:success] = 'スケジュールが正常に削除されました'
+    flash[:success] = 'スケジュールが削除されました'
     redirect_to schedules_url
   end
   

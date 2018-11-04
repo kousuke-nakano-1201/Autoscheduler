@@ -1,2 +1,22 @@
-<h1>Tasks#show</h1>
-<p>Find me in app/views/tasks/show.html.erb</p>
+<h1><%= @task.task_title %> のタスク詳細ページ</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>タイトル</th>
+      <th>開始ページ</th>
+      <th>終了ページ</th>
+      <th>1ページあたりの目安時間(分)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @task.task_title %></td>
+      <td><%= @task.page_start %></td>
+      <td><%= @task.page_end %></td>
+      <td><%= @task.time_par_page %></td>
+    </tr>
+  </tbody>
+</table>
+<%= link_to 'タスクの編集', edit_schedule_task_path(schedule_id:@schedule,id:@task) , class: 'btn btn-default' %>
+<%= link_to 'このタスクを削除する', schedule_task_path(schedule_id:@schedule,id:@task), method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
