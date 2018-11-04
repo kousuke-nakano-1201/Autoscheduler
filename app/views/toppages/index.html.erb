@@ -1,7 +1,10 @@
 <div class="center jumbotron">
   <div class="text-center">
     <h1>Auto scheduler</h1>
+    <p>教材のページ数と1週間の勉強時間を入力するだけで，</p>
+　  <p>自動でスケジュール表を作成！試験勉強などに使えます！</p>
     <% if logged_in? %>
+    <%= link_to '新規スケジュール作成', new_schedule_path, class: 'btn btn-lg btn-primary' %>
       <%= link_to 'スケジュール一覧', schedules_path, class: 'btn btn-lg btn-success' %>
     <% else %>
       <%= link_to '新規アカウント作成', signup_path, class: 'btn btn-lg btn-primary' %>

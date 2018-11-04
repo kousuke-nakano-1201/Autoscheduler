@@ -16,10 +16,10 @@ class TasksController < ApplicationController
     @schedule = Schedule.find(params[:schedule_id])
     @task = @schedule.tasks.build(task_params)
     if @task.save
-      flash[:success] = 'タスクを作成しました。'
+      flash[:success] = '教材を登録しました。'
       redirect_to schedule_path(@schedule)
     else
-      flash.now[:danger] = 'タスクが作成されませんでした'
+      flash.now[:danger] = '教材を登録できませんでした'
       render :new
     end
   end
@@ -33,10 +33,10 @@ class TasksController < ApplicationController
     @schedule = Schedule.find(params[:schedule_id])
     @task = Task.find(params[:id])
     if @task.update(task_params)
-      flash[:success] = 'タスクを更新しました。'
+      flash[:success] = '教材を更新しました。'
       redirect_to schedule_path(@schedule)
     else
-      flash.now[:danger] = 'タスクが更新されませんでした'
+      flash.now[:danger] = '教材を更新できませんでした'
       render :edit
     end
   end
@@ -45,7 +45,7 @@ class TasksController < ApplicationController
     @schedule = Schedule.find(params[:schedule_id])
     @task = Task.find(params[:id])
     @task.destroy
-    flash[:success] = 'タスクが正常に削除されました'
+    flash[:success] = '教材を削除しました'
     redirect_to schedule_path(@schedule)
   end
   

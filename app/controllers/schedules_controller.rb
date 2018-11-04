@@ -20,10 +20,10 @@ class SchedulesController < ApplicationController
   def create
     @schedule = current_user.schedules.build(schedule_params)
     if @schedule.save
-      flash[:success] = 'スケジュールが正常に作成されました'
+      flash[:success] = 'スケジュールを作成しました'
       redirect_to @schedule
     else
-      flash.now[:danger] = 'スケジュールが作成されませんでした'
+      flash.now[:danger] = 'スケジュールを作成できませんでした'
       render :new
     end
   end
@@ -35,10 +35,10 @@ class SchedulesController < ApplicationController
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(schedule_params)
-      flash[:success] = 'スケジュールが更新されました'
+      flash[:success] = 'スケジュールを更新しました'
       redirect_to @schedule
     else
-      flash.now[:danger] = 'スケジュールが更新されませんでした'
+      flash.now[:danger] = 'スケジュールを更新できませんでした'
       render :edit
     end
     
@@ -47,7 +47,7 @@ class SchedulesController < ApplicationController
   def destroy
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
-    flash[:success] = 'スケジュールが削除されました'
+    flash[:success] = 'スケジュールを削除しました'
     redirect_to schedules_url
   end
   

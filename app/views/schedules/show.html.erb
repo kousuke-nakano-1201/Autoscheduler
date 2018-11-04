@@ -32,10 +32,10 @@
   </tbody>
 </table>
 <%= link_to 'スケジュールタイトル/日程の編集', edit_schedule_path(@schedule) , class: 'btn btn-default' %>
-<%= link_to 'スケジュールを削除する', @schedule, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
+<%= link_to 'スケジュールの削除', @schedule, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>
 <%= link_to 'スケジュール表の表示',schedule_tables_path(@schedule), class: 'btn btn-success' %>
 
-<h1><%= @schedule.schedule_title %>のタスク一覧</h1>
+<h1><%= @schedule.schedule_title %>の教材一覧</h1>
 
 <% if @tasks.any? %>
   <table class="table table-striped">
@@ -45,7 +45,7 @@
         <th>開始ページ</th>
         <th>終了ページ</th>
         <th>1ページあたりの目安時間(分)</th>
-        <th>タスクの編集/削除</th>
+        <th>教材の編集/削除</th>
       </tr>
     </thead>
     <tbody>
@@ -65,5 +65,5 @@
     <%= paginate @tasks %>
   </div>
 <% end %>
-<%= link_to '新規タスク作成', new_schedule_task_path(@schedule), class: "btn btn-primary"  %>
+<%= link_to '教材新規登録', new_schedule_task_path(@schedule), class: "btn btn-primary"  %>
 

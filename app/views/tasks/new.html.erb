@@ -1,4 +1,4 @@
-<h1>タスク新規作成ページ</h1>
+<h1>教材新規登録ページ</h1>
 
 <%= form_for(@task,url: schedule_tasks_path(schedule_id:@schedule))  do |f| %>
   <div class="row">
@@ -34,7 +34,7 @@
     </div> 
     </div>
     
-    <%= f.submit 'タスクを作成', class: 'btn btn-primary'%>
+    <%= f.submit '教材を登録', class: 'btn btn-primary'%>
   </div> 
 <% end %>
 
