@@ -7,7 +7,7 @@ class Task < ApplicationRecord
             only_integer: true, greater_than_or_equal_to: 0
           }
   validates :page_end, numericality: {
-            only_integer: true, greater_than_or_equal_to: 0
+            only_integer: true, greater_than_or_equal_to: :page_start
           }
   validates :time_par_page, numericality: {
             only_integer: true, greater_than_or_equal_to: 0

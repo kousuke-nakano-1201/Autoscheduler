@@ -1,9 +1,8 @@
-<%= form_for(task,url: schedule_tasks_path(task.schedule.id))  do |f| %>
   <div class="row">
-    <% if task.errors.any? %>
+    <% if @task.errors.any? %>
       <div id="error_explanation">
         <ul>
-          <% task.errors.full_messages.each do |message| %>
+          <% @task.errors.full_messages.each do |message| %>
             <li><%= message %></li>
           <% end %>
         </ul>
@@ -32,6 +31,5 @@
     </div> 
     </div>
     
-    <%= f.submit 'タスクを作成', class: 'btn btn-primary'%>
+    <%= f.submit '教材を登録', class: 'btn btn-primary'%>
   </div> 
-<% end %>

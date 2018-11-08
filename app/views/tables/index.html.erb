@@ -10,7 +10,7 @@
 
 <%# 全体の勉強時間 %>
 <% (@schedule.day_start..@schedule.day_end).each_with_index do |day, index| %>
-  <% week = day.wday%>
+  <% week = day.wday %>
   <% if week == 1 %>
     <% days_time[index] = @schedule.week.time_Mon %>
   <% elsif week == 2 %>
@@ -103,8 +103,23 @@
   </thead>
   <tbody>
     <% (@schedule.day_start..@schedule.day_end).each_with_index do |day, index_day| %>
+      <% week = day.wday %>
       <tr>
-        <td><%= day %></td>
+        <% if week == 1 %>
+          <td><%= day %>（月）</td>
+        <% elsif week == 2 %>
+          <td><%= day %>（火）</td>
+        <% elsif week == 3 %>
+          <td><%= day %>（水）</td>
+        <% elsif week == 4 %>
+          <td><%= day %>（木）</td>
+        <% elsif week == 5 %>
+          <td><%= day %>（金）</td>
+        <% elsif week == 6 %>
+          <td><font color="#0000FF"><%= day %>（土）</font></td>
+        <% else %>
+          <td><font color="#FF0000"><%= day %>（日）</font></td>
+        <% end %>
         <% @tasks.each_with_index do |task, index_task| %>
           <% s = tasks_pagecheck[index_task] %>
           <% e = tasks_pagecheck[index_task]+tables_page[index_day][index_task]-1 %>
