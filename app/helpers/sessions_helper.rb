@@ -7,3 +7,4 @@ module SessionsHelper
     !!current_user
   end
 end
+
