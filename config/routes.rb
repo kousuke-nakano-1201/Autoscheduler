@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   
   resources :schedules do
-      resources :tasks, only: [:show, :new, :create, :edit, :update, :destroy]
-      resources :tables, only: [:index]
+    resources :tasks, only: [:new, :create, :edit, :update, :destroy]
+    #resources :tasks, only: [:show, :new, :create, :edit, :update, :destroy]
+    resources :tables, only: [:index]
   end
 end

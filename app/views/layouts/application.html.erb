@@ -17,8 +17,9 @@
 
   <body>
     <%= render 'layouts/navbar' %>
-    
+
     <div class="container">
+      <%= breadcrumbs separator: " &rsaquo; " %>
       <%= render 'layouts/flash_messages' %>
       
       <%= yield %>

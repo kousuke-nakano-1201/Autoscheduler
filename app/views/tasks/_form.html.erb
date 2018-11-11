@@ -12,7 +12,7 @@
     <div class="col-xs-6">
     <div class="form-group">
       <%= f.label :task_title, 'タイトル' %>
-      <%= f.text_field :task_title , class: 'form-control'%>
+      <%= f.text_field :task_title ,:placeholder => "教材タイトルを入力", class: 'form-control'%>
     </div> 
     </div> 
     </div> 
@@ -20,13 +20,13 @@
     <div class="form-inline">
     <div class="form-group">
       <%= f.label :page_start, '開始ページ' %>
-      <%= f.number_field :page_start , use_month_numbers: true, class: 'form-control'%>
+      <%= f.number_field :page_start ,:placeholder => "0 以上の整数", class: 'form-control'%>
       <%= f.label :page_end, '～終了ページ' %>
-      <%= f.number_field :page_end , use_month_numbers: true, class: 'form-control'%>
+      <%= f.number_field :page_end ,:placeholder => "0 以上の整数", class: 'form-control'%>
     </div> 
     <div class="form-group">
       <%= f.label :time_par_page, '　1ページあたりの目安時間' %>
-      <%= f.number_field :time_par_page , class: 'form-control'%><strong>分　</strong>
+      <%= f.number_field :time_par_page ,:placeholder => "0 以上の整数", class: 'form-control'%><strong>分　</strong>
     </div>
     </div> 
     </div>
