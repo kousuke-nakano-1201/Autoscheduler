@@ -61,6 +61,10 @@
       </div>
     <% end %>
     
-    <%= f.submit 'スケジュールを作成', class: 'btn btn-primary', style: 'margin-top: 15px'%>
+    <% if flag == 0 %>
+      <%= f.submit 'スケジュールを作成', class: 'btn btn-primary', style: 'margin-top: 15px'%>
+    <% else %>
+      <%= f.submit 'スケジュールを更新', class: 'btn btn-primary', style: 'margin-top: 15px'%>
+    <% end %>
   <% end %>
 </div> 

@@ -3,5 +3,5 @@
 <h1>教材新規登録ページ</h1>
 
 <%= form_for(@task,url: schedule_tasks_path(schedule_id:@schedule))  do |f| %>
-  <%= render 'form', task: @task,f: f %>
+  <%= render 'form', task: @task,f: f, flag: 0 %>
 <% end %>

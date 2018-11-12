@@ -31,5 +31,9 @@
     </div> 
     </div>
     
-    <%= f.submit '教材を登録', class: 'btn btn-primary'%>
+    <% if flag == 0 %>
+      <%= f.submit '教材を登録', class: 'btn btn-primary' ,style: 'margin-top: 15px'%>
+    <% else %>
+      <%= f.submit '教材を更新', class: 'btn btn-primary' ,style: 'margin-top: 15px'%>
+    <% end %>
   </div> 
