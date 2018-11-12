@@ -1,0 +1,30 @@
+ja:
+  activerecord:
+    models:
+      schedule: スケジュール
+      task: 教材
+      user: ユーザー
+      week: 曜日
+    attributes:
+      schedule:
+        schedule_title: タイトル
+        day_start: 開始日
+        day_end: 終了日
+      task:
+        task_title: タイトル
+        page_start: 開始ページ
+        page_end: 終了ページ
+        time_par_page: 1ページあたりの目安時間
+      user:
+        name: アカウント名
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+      week:
+        time_Mon: 月曜日の勉強時間
+        time_Tue: 火曜日の勉強時間
+        time_Wed: 水曜日の勉強時間
+        time_Thu: 木曜日の勉強時間
+        time_Fri: 金曜日の勉強時間
+        time_Sat: 土曜日の勉強時間
+        time_Sun: 日曜日の勉強時間
